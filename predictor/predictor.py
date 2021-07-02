@@ -1,3 +1,5 @@
+import re
+
 length = 100
 
 text = ""
@@ -13,3 +15,20 @@ while True:
 print()
 print("Final data string:")
 print(text)
+print()
+
+triads = [
+    "000",
+    "001",
+    "010",
+    "011",
+    "100",
+    "101",
+    "110",
+    "111",
+]
+
+for triad in triads:
+    ones = f"(?=({triad}1))"
+    zeros = f"(?=({triad}0))"
+    print(f"{triad}: {len(re.findall(zeros, text))},{len(re.findall(ones, text))}")

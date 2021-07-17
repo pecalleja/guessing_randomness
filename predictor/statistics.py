@@ -1,4 +1,5 @@
 import re
+from random import choice
 
 
 def get_statistics(text: str, triads: list[str]) -> dict:
@@ -10,3 +11,14 @@ def get_statistics(text: str, triads: list[str]) -> dict:
         total_zeros = len(re.findall(zeros, text))
         statistics[triad] = [total_zeros, total_ones]
     return statistics
+
+
+def predict_symbol(statistics: dict, test_triad) -> str:
+    zeros, ones = statistics[test_triad]
+    if zeros > ones:
+        return "0"
+    elif ones > zeros:
+        return "1"
+    else:
+        elements = ["1", "0"]
+        return choice(elements)

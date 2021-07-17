@@ -28,7 +28,12 @@ triads = [
     "111",
 ]
 
+statistics = {}
+
 for triad in triads:
     ones = f"(?=({triad}1))"
     zeros = f"(?=({triad}0))"
-    print(f"{triad}: {len(re.findall(zeros, text))},{len(re.findall(ones, text))}")
+    total_ones = len(re.findall(ones, text))
+    total_zeros = len(re.findall(zeros, text))
+    statistics[triad] = [total_zeros, total_ones]
+    print(f"{triad}: {total_zeros},{total_ones}")

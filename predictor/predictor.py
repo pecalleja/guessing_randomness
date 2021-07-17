@@ -10,7 +10,7 @@ while True:
     text += "".join(user_input)
     if len(text) >= 100:
         break
-    print(f"Current data length is {length}, {length - len(text)} symbols left")
+    print(f"Current data length is {len(text)}, {length - len(text)} symbols left")
 
 print()
 print("Final data string:")
